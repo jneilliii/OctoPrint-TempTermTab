@@ -8,7 +8,7 @@ $(function() {
 			//Check for TouchUIPlugin, if not loaded apply special class.
 			var htmlId = $("html").attr("id");
 			if (htmlId != "touch") {
-				$('div#temp').append($('div#term').removeClass('tab-pane').css({min-height:'125px',max-height:'125px',height:'125px'}));
+				$('div#temp').append($('div#term').removeClass('tab-pane').css({'min-height':'125px','max-height':'125px','height':'125px'}));
 				$('li#term_link').hide();
 				if(!$('#terminal-filterpanel input[type=checkbox]:eq(0)').prop('checked')){$('#terminal-filterpanel input[type=checkbox]:eq(0)').trigger('click');}
 				if(!$('#terminal-filterpanel input[type=checkbox]:eq(2)').prop('checked')){$('#terminal-filterpanel input[type=checkbox]:eq(2)').trigger('click');}
