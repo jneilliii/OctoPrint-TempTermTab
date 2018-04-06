@@ -4,14 +4,16 @@ $(function() {
 
 		self.navigationViewModel = parameters[0];
 
-		//Check for TouchUIPlugin, if not loaded apply special class.
-		var htmlId = $("html").attr("id");
-		if (htmlId != "touch") {
-			$('div#temp').append($('div#term').removeClass('tab-pane'));
-			$('li#term_link').hide();
-			if(!$('#terminal-filterpanel input[type=checkbox]:eq(0)').prop('checked')){$('#terminal-filterpanel input[type=checkbox]:eq(0)').trigger('click');}
-			if(!$('#terminal-filterpanel input[type=checkbox]:eq(2)').prop('checked')){$('#terminal-filterpanel input[type=checkbox]:eq(2)').trigger('click');}
-			$('pre#terminal-output').on('DOMNodeInserted',function(){if($('button').filter(function(index){return $(this).text() === "Autoscroll";}).hasClass('active')){$(this).scrollTop($(this)[0].scrollHeight);}});
+		self.onAfterBinding = function() {
+			//Check for TouchUIPlugin, if not loaded apply special class.
+			var htmlId = $("html").attr("id");
+			if (htmlId != "touch") {
+				$('div#temp').append($('div#term').removeClass('tab-pane'));
+				$('li#term_link').hide();
+				if(!$('#terminal-filterpanel input[type=checkbox]:eq(0)').prop('checked')){$('#terminal-filterpanel input[type=checkbox]:eq(0)').trigger('click');}
+				if(!$('#terminal-filterpanel input[type=checkbox]:eq(2)').prop('checked')){$('#terminal-filterpanel input[type=checkbox]:eq(2)').trigger('click');}
+				$('pre#terminal-output').on('DOMNodeInserted',function(){if($('button').filter(function(index){return $(this).text() === "Autoscroll";}).hasClass('active')){$(this).scrollTop($(this)[0].scrollHeight);}});
+			}
 		}
 	}
 
