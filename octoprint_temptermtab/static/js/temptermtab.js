@@ -1,5 +1,5 @@
 $(function() {
-	function floatingNavbarViewModel(parameters) {
+	function tempTermTabViewModel(parameters) {
 		var self = this;
 
 		self.navigationViewModel = parameters[0];
@@ -7,9 +7,11 @@ $(function() {
 		//Check for TouchUIPlugin, if not loaded apply special class.
 		var htmlId = $("html").attr("id");
 		if (htmlId != "touch") {
-			$("#navbar").toggleClass("navbar-fixed-top navbar-static-top");
-			$("div.container.octoprint-container").css("margin-top",$("#navbar").outerHeight(true)+20);
-			$('#navbar').resize(function(){$("div.container.octoprint-container").css("margin-top",$("#navbar").outerHeight(true)+20);});
+			$('div#temp').append($('div#term').removeClass('tab-pane'));
+			$('li#term_link').hide();
+			if(!$('#terminal-filterpanel input[type=checkbox]:eq(0)').prop('checked')){$('#terminal-filterpanel input[type=checkbox]:eq(0)').trigger('click');}
+			if(!$('#terminal-filterpanel input[type=checkbox]:eq(2)').prop('checked')){$('#terminal-filterpanel input[type=checkbox]:eq(2)').trigger('click');}
+			$('pre#terminal-output').on('DOMNodeInserted',function(){if($('button').filter(function(index){return $(this).text() === "Autoscroll";}).hasClass('active')){$(this).scrollTop($(this)[0].scrollHeight);}});
 		}
 	}
 
@@ -17,7 +19,7 @@ $(function() {
 	// information to the global variable OCTOPRINT_VIEWMODELS
 	OCTOPRINT_VIEWMODELS.push([
 		// This is the constructor to call for instantiating the plugin
-		floatingNavbarViewModel,
+		tempTermTabViewModel,
 
 		// This is a list of dependencies to inject into the plugin, the order which you request
 		// here is the order in which the dependencies will be injected into your view model upon
