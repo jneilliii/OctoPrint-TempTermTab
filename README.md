@@ -1,4 +1,4 @@
-# OctoPrint-FloatingNavbar
+# OctoPrint-TempTermTab
 
 Octoprint plugin to make the navbar float on the page/stick to the top while scrolling.
 
@@ -9,4 +9,4 @@ Octoprint plugin to make the navbar float on the page/stick to the top while scr
 
 Install via the bundled Plugin Manager or manually using this URL:
 
-	https://github.com/jneilliii/OctoPrint-FloatingNavbar/archive/master.zip
+	https://github.com/jneilliii/OctoPrint-TempTermTab/archive/master.zip
