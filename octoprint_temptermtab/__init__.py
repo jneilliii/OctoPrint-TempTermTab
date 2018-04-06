@@ -2,9 +2,9 @@
 
 import octoprint.plugin
 
-class floatingnavbar(octoprint.plugin.AssetPlugin):
+class temptermtab(octoprint.plugin.AssetPlugin):
 	def get_assets(self):
-		return dict(js=["js/floatingnavbar.js"])
+		return dict(js=["js/temptermtab.js"])
 		
 	def get_version(self):
 		return self._plugin_version
@@ -12,26 +12,26 @@ class floatingnavbar(octoprint.plugin.AssetPlugin):
 	##~~ Softwareupdate hook
 	def get_update_information(self):
 		return dict(
-			floatingnavbar=dict(
-				displayName="Floating Navbar",
+			temptermtab=dict(
+				displayName="OctoPrint-TempTermTab",
 				displayVersion=self._plugin_version,
 
 				# version check: github repository
 				type="github_release",
 				user="jneilliii",
-				repo="OctoPrint-FloatingNavbar",
+				repo="OctoPrint-TempTermTab",
 				current=self._plugin_version,
 
 				# update method: pip
-				pip="https://github.com/jneilliii/OctoPrint-FloatingNavbar/archive/{target_version}.zip"
+				pip="https://github.com/jneilliii/OctoPrint-TempTermTab/archive/{target_version}.zip"
 			)
 		)
 
-__plugin_name__ = "FloatingNavbar"
+__plugin_name__ = "TempTermTab"
 
 def __plugin_load__():
 	global __plugin_implementation__
-	__plugin_implementation__ = floatingnavbar()
+	__plugin_implementation__ = temptermtab()
 
 	global __plugin_hooks__
 	__plugin_hooks__ = {
